@@ -1,0 +1,2 @@
+class Ilac < ApplicationRecord
+end
