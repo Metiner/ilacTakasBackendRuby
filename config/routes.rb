@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   post 'teklifs/get_ilac_auto_complete'
 
   resources :teklifs
-  resources :eczanes
+  resources :eczanes do
+    resources :alims
+  end
+  resources :alims
 end
