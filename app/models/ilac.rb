@@ -1,2 +1,0 @@
-class Ilac < ApplicationRecord
-end

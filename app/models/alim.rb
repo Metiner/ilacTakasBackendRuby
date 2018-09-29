@@ -1,7 +1,8 @@
 class Alim < ApplicationRecord
   belongs_to :teklif
   belongs_to :eczane
-  has_many :karekods
+  has_many :ilacs
+  validates_presence_of :miktar, :teklif, :eczane
 
   def as_json(_options = {})
     {
@@ -11,7 +12,8 @@ class Alim < ApplicationRecord
         teslim_alindi: teslim_alindi,
         teklif: teklif,
         created_at: created_at,
-        eczane: eczane
+        eczane: eczane,
+        karekodlar: karekodlar
     }
   end
 end

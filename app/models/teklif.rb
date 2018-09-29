@@ -1,5 +1,19 @@
 class Teklif < ApplicationRecord
   belongs_to :eczane
+  has_many :alims
+
+  validates_presence_of :barcode,
+                        :alim_miktari,
+                        :mal_fazlasi,
+                        :min_alim,
+                        :hedeflenen_alim,
+                        :baslangic_tarihi,
+                        :bitis_tarihi ,
+                        :son_kul_tarihi,
+                        :etiket_fiyati,
+                        :depo_fiyati,
+                        :net_fiyat ,
+                        :eczane
 
   def as_json(_options={})
     {

@@ -8,4 +8,8 @@ require 'json'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Grup.create(id: 1, ad: 'AnkaFarma')
+user1 = User.create email: '1@1.com', password: '111111', password_confirmation: '111111'
+user2 = User.create email: '2@2.com', password: '222222', password_confirmation: '222222'
+user1.eczane = Eczane.create ad: '1', gln_no: 'asdasd', grup_id: 1
+user2.eczane = Eczane.create ad: '2', gln_no: 'asdasdd', grup_id: 1
 

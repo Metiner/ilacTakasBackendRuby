@@ -6,6 +6,7 @@ class CreateAlims < ActiveRecord::Migration[5.1]
       t.datetime :tarih
       t.boolean :gonderildi
       t.boolean :teslim_alindi
+      t.jsonb :karekodlar
 
       t.timestamps
       t.references :teklif

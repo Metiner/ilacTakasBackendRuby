@@ -3,6 +3,7 @@ class Eczane < ApplicationRecord
   has_many :teklifs
   has_many :alims
   has_one :user
+  validates_presence_of :ad, :gln_no
 end
 def as_json(_options = {})
   json = {

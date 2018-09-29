@@ -6,13 +6,32 @@ class AlimsController < ApplicationController
   end
   def create
     alim = Alim.create(alim_params)
-    increase_alinan_miktar_of_teklif
-    render json: { status: "ok", alim: alim}
+    if alim.persisted?
+      increase_alinan_miktar_of_teklif
+      render json: { status: "ok", alim: alim}
+    else
+      render json: { status: "error"}
+    end
+  end
+
+  def get_gonderimlerim
+    #gonderimlerim = Alim.find_by_sql("select a.* from alims a, teklifs b where a.teklif_id = b.id and b.eczane_id = #{params[:eczane_id]}")
+    gonderimlerim = Alim.joins(:teklif).where('teklifs.eczane_id = ?', params[:eczane_id]).to_a
+    render json: { status: "ok", gonderimlerim: gonderimlerim}
+  end
+
+  def update
+    alim = Alim.find(params[:id])
+    if alim.update(alim_params)
+      render json: { status: "ok"}
+    else
+      render json: { status: "error"}
+    end
   end
 
   private
   def alim_params
-    params.require(:alim).permit(:eczane_id,:miktar,:teklif_id,:tarih)
+    params.require(:alim).permit!
   end
 
   def increase_alinan_miktar_of_teklif
@@ -21,4 +40,5 @@ class AlimsController < ApplicationController
     teklif.alinmis_miktar += miktar
     teklif.save
   end
+
 end

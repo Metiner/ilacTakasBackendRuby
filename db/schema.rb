@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909111300) do
+ActiveRecord::Schema.define(version: 20180908124557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180909111300) do
     t.datetime "tarih"
     t.boolean "gonderildi"
     t.boolean "teslim_alindi"
+    t.jsonb "karekodlar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "teklif_id"
@@ -45,21 +46,6 @@ ActiveRecord::Schema.define(version: 20180909111300) do
     t.string "ad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "ilacs", force: :cascade do |t|
-    t.string "barcode"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "karekods", force: :cascade do |t|
-    t.string "karekod"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "alim_id"
-    t.index ["alim_id"], name: "index_karekods_on_alim_id"
   end
 
   create_table "teklifs", force: :cascade do |t|
