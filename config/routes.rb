@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :teklifs
   resources :eczanes do
     resources :alims
+    resources :bakiyes
   end
   resources :alims
+  resources :bakiyes
 end

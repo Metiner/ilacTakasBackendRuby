@@ -4,6 +4,7 @@ class AlimsController < ApplicationController
     eczane = Eczane.find(params[:eczane_id])
     render json: { status: "ok", alims: eczane.alims.sort{|m,n| n.created_at <=> m.created_at} }
   end
+
   def create
     alim = Alim.create(alim_params)
     if alim.persisted?
