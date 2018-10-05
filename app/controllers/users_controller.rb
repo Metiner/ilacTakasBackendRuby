@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     user.create_eczane(eczane_params)
     if user.persisted?
-      render json: user
+      render json: {user: user, token: user.encoded_token }
     else
       render json: { error: user.errors }, status: 422
     end

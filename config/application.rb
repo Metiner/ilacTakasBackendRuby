@@ -16,7 +16,7 @@ module IlacTakasBackendRuby
       end
     end
     config.load_defaults 5.1
-
+    config.hmac_secret = 'Vvh4CRxu2rNbYuA4xawVrwTDTRpe9zT3B3L3Crvh7qNt6vbbAYbxUppnuwFzxxADwJSUFCWBu2xaMdqGVvWFmkcFxQkwjBXVc8Jtn78ptyYK7qaXuDrscewh'
 
 
     # Settings in config/environments/* take precedence over those specified here.

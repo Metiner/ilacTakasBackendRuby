@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'teklifs/get_ilac_auto_complete'
   post 'alims/get_gonderimlerim'
 
+  resources :grups
+
   resources :teklifs
   resources :eczanes do
     resources :alims
